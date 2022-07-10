@@ -1,4 +1,4 @@
-﻿namespace Infrastructure.Dtos;
+﻿namespace Core.Dtos;
 
 public class WeatherForecastDto
 {

@@ -1,6 +1,6 @@
-﻿using Infrastructure.Dtos;
+﻿using Core.Dtos;
 
-namespace Infrastructure.Services.Interfaces;
+namespace Core.Services;
 
 public interface IWeatherForecastService
 {

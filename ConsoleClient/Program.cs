@@ -1,16 +1,10 @@
-﻿using Infrastructure.Configurations;
-using Infrastructure.Services;
-using Infrastructure.Services.Interfaces;
+﻿using Core.Services;
+using Infrastructure;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
 var host = new HostBuilder()
-    .ConfigureServices((_, services) =>
-    {
-        services.AddHttpClient();
-        services.AddSingleton(new Settings {WeatherForecastApiBaseUri = "http://localhost:5128/"});
-        services.AddTransient<IWeatherForecastService, WeatherForecastService>();
-    })
+    .ConfigureServices((_, services) => services.AddInfrastructureLayer())
     .UseConsoleLifetime()
     .Build();
 

@@ -1,11 +1,11 @@
-﻿using Infrastructure.Configurations;
-using Infrastructure.Dtos;
-using Infrastructure.Services.Interfaces;
+﻿using Core.Dtos;
+using Core.Services;
+using Infrastructure.Configurations;
 using Microsoft.Extensions.Logging;
 
 namespace Infrastructure.Services;
 
-public class WeatherForecastService : IWeatherForecastService
+internal class WeatherForecastService : IWeatherForecastService
 {
     private readonly ILogger<WeatherForecastService> _logger;
     private readonly IHttpClientFactory _httpClientFactory;
