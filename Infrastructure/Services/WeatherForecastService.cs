@@ -40,7 +40,7 @@ internal class WeatherForecastService : IWeatherForecastService
         }
         catch (Exception e)
         {
-            _logger.LogError(e, "Error message: {errorMessage}", e.Message);
+            _logger.LogError(e, "Error message: {ErrorMessage}", e.Message);
             return new List<WeatherForecastDto>();
         }
     }
