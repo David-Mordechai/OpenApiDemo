@@ -28,4 +28,34 @@ public class WeatherForecastController : ControllerBase
                 Summary = Summaries[Random.Shared.Next(Summaries.Length)]
             }).ToArray();
     }
+    
+    [HttpGet("{id:int}")]
+    public async Task<string> Get(int id)
+    {
+        var cancellationTokenSource = new CancellationTokenSource();
+        cancellationTokenSource.CancelAfter(3000);
+        var token = cancellationTokenSource.Token;
+
+        try
+        {
+            await Task.Delay(4000, token);
+            _logger.LogInformation("Task 1 ended");
+        
+            await Task.Delay(4000, token);
+            _logger.LogInformation("Task 2 ended");
+        }
+        catch (Exception e)
+        {
+            var error = e switch
+            {
+                TaskCanceledException => "Task Canceled Exception",
+                OperationCanceledException => "Operation Canceled Exception",
+                _ => "Unknown Exception"
+            };
+            _logger.LogError("{Error}", error);
+            return error;
+        }
+        
+        return $"Id: {id}";
+    }
 }
