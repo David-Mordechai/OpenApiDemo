@@ -33,9 +33,9 @@ public class WeatherForecastController : ControllerBase
     public async Task<string> Get(int id)
     {
         var cancellationTokenSource = new CancellationTokenSource();
-        cancellationTokenSource.CancelAfter(3000);
+        cancellationTokenSource.CancelAfter(5000);
         var token = cancellationTokenSource.Token;
-
+        var result = $"Id: {id}";
         try
         {
             await Task.Delay(4000, token);
@@ -53,9 +53,10 @@ public class WeatherForecastController : ControllerBase
                 _ => "Unknown Exception"
             };
             _logger.LogError("{Error}", error);
-            return error;
+            result = error;
         }
         
-        return $"Id: {id}";
+        cancellationTokenSource.Dispose();
+        return result;
     }
 }
