@@ -2,5 +2,5 @@
 
 internal class Settings
 {
-    public string WeatherForecastApiBaseUri { get; set; } = string.Empty;
+    public string WeatherForecastApiBaseUri { get; init; } = string.Empty;
 }

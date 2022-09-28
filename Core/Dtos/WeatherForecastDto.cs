@@ -2,13 +2,13 @@
 
 public class WeatherForecastDto
 {
-    public DateTimeOffset Date { get; set; }
+    public DateTimeOffset Date { get; init; }
 
-    public int TemperatureC { get; set; }
+    public int TemperatureC { get; init; }
 
-    public int TemperatureF { get; set; }
+    public int TemperatureF { get; init; }
 
-    public string Summary { get; set; } = string.Empty;
+    public string Summary { get; init; } = string.Empty;
 
     public override string ToString()
     {
